@@ -22,15 +22,28 @@ struct ContentView: View {
                     Text("Phrase of the Day:")
                         .font(.title)
                         .colorInvert()
+                    Spacer()
                     Text("Total commitment to the action, total equanimity to the outcome.")
                         .font(.headline)
                         .colorInvert()
                     Spacer()
                 }
-                HStack {
-                    Circle().stroke(Color.yellow, lineWidth: 4).shadow(radius: 10)
-                    Circle().stroke(Color.yellow, lineWidth: 4).shadow(radius: 10)
+                GeometryReader { geometry in
+                    Circle()
+                        .stroke(Color.yellow, lineWidth: 4)
+                        .shadow(radius: 10)
+                        .overlay(
+                            VStack {
+                                Text("8")
+                                    .font(.headline)
+                                    .colorInvert()
+                                Text("goals accomplished")
+                                    .font(.subheadline)
+                                    .colorInvert()
+                            })
+                        .frame(width: geometry.size.width / 2, height: geometry.size.height / 2)
                 }
+                ActionButton(button: .viewGoals)
             }
             .padding()
         }

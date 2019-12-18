@@ -11,6 +11,7 @@ import SwiftUI
 enum ActionButtonType {
     case menu
     case addGoal
+    case viewGoals
 }
 
 struct ActionButton: View {
@@ -19,13 +20,23 @@ struct ActionButton: View {
     var body: some View {
         switch button {
         case .menu:
-            return Button(action: { print("menu tapped") }) {
+            return AnyView(Button(action: { print("menu tapped") }) {
                 CircleImage(image: Image(systemName: "list.dash"))
-            }
+            })
         case .addGoal:
-            return Button(action: { print("add goal tapped") }) {
+            return AnyView(Button(action: { print("add goal tapped") }) {
                 CircleImage(image: Image(systemName: "plus"))
-            }
+            })
+        case .viewGoals:
+            return AnyView(Button(action: { print("view goals tapped") }) {
+                Text("See your goals")
+                    .padding()
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .background(Color.gray)
+                    .cornerRadius(40)
+                    .shadow(radius: 10)
+            })
         }
     }
 }
