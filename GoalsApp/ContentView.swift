@@ -14,11 +14,16 @@ struct ContentView: View {
             Color.black.opacity(0.8).edgesIgnoringSafeArea(.all)
             VStack {
                 HStack {
-                    ActionButton(button: .menu)
+                    Button(action: { print("menu tapped") }) {
+                        CircleImage(image: Image(systemName: "list.dash"))
+                    }
                     Spacer()
-                    ActionButton(button: .addGoal)
+                    Button(action: { print("add goal tapped") }) {
+                        CircleImage(image: Image(systemName: "plus"))
+                    }
                 }
                 VStack {
+                    Spacer()
                     Text("Phrase of the Day:")
                         .font(.title)
                         .colorInvert()
@@ -43,7 +48,15 @@ struct ContentView: View {
                             })
                         .frame(width: geometry.size.width / 2, height: geometry.size.height / 2)
                 }
-                ActionButton(button: .viewGoals)
+                Button(action: { print("view goals tapped") }) {
+                    Text("See your goals")
+                        .padding()
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .background(Color.gray)
+                        .cornerRadius(40)
+                        .shadow(radius: 10)
+                }
             }
             .padding()
         }
