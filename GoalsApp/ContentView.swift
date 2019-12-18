@@ -14,29 +14,9 @@ struct ContentView: View {
             Color.black.opacity(0.8).edgesIgnoringSafeArea(.all)
             VStack {
                 HStack {
-                    Button(action: {
-                        print("menu tapped")
-                    }) {
-                        Image(systemName: "list.dash")
-                            .padding()
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                            .background(Color.gray)
-                            .clipShape(Circle())
-                            .shadow(radius: 10)
-                    }
+                    ActionButton(button: .menu)
                     Spacer()
-                    Button(action: {
-                        print("add goal tapped")
-                    }) {
-                        Image(systemName: "plus")
-                            .padding()
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                            .background(Color.gray)
-                            .clipShape(Circle())
-                            .shadow(radius: 10)
-                    }
+                    ActionButton(button: .addGoal)
                 }
                 VStack {
                     Text("Phrase of the Day:")
