@@ -10,7 +10,50 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")
+        ZStack {
+            Color.black.opacity(0.8).edgesIgnoringSafeArea(.all)
+            VStack {
+                HStack {
+                    Button(action: {
+                        print("menu tapped")
+                    }) {
+                        Image(systemName: "list.dash")
+                            .padding()
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .background(Color.gray)
+                            .clipShape(Circle())
+                            .shadow(radius: 10)
+                    }
+                    Spacer()
+                    Button(action: {
+                        print("add goal tapped")
+                    }) {
+                        Image(systemName: "plus")
+                            .padding()
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .background(Color.gray)
+                            .clipShape(Circle())
+                            .shadow(radius: 10)
+                    }
+                }
+                VStack {
+                    Text("Phrase of the Day:")
+                        .font(.title)
+                        .colorInvert()
+                    Text("Total commitment to the action, total equanimity to the outcome.")
+                        .font(.headline)
+                        .colorInvert()
+                    Spacer()
+                }
+                HStack {
+                    Circle().stroke(Color.yellow, lineWidth: 4).shadow(radius: 10)
+                    Circle().stroke(Color.yellow, lineWidth: 4).shadow(radius: 10)
+                }
+            }
+            .padding()
+        }
     }
 }
 
