@@ -104,7 +104,7 @@ extension AnyTransition {
     }
 }
 
-struct AppView: View {
+struct ContentView: View {
     @State private var showGoals = false
     
     var body: some View {
@@ -122,19 +122,19 @@ struct AppView: View {
     }
 }
 
-struct ContentView: View {
+struct AppView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 Color.black.opacity(0.8).edgesIgnoringSafeArea(.all)
-                AppView()
+                ContentView()
             }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AppView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AppView()
     }
 }
