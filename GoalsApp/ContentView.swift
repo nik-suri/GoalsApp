@@ -55,32 +55,79 @@ private struct ProgressView: View {
     }
 }
 
+struct MainView: View {
+    @Binding var showGoals: Bool
+    
+    var body: some View {
+        VStack {
+            HeaderView()
+            PhraseView()
+            GeometryReader { geometry in
+                    ProgressView()
+                    .frame(width: geometry.size.width / 2, height: geometry.size.height / 2)
+            }
+            MainTransitionButton(bind: self.$showGoals,
+                                 showGoals: true,
+                                 text: "See your goals")
+        }
+        .padding()
+    }
+}
+
+struct GoalsView: View {
+    @Binding var showGoals: Bool
+    
+    var body: some View {
+        VStack {
+            Text("This is the goals view").colorInvert()
+            Text("this is another line in the goals view").colorInvert()
+            MainTransitionButton(bind: self.$showGoals,
+                                 showGoals: false,
+                                 text: "Go back")
+            Spacer()
+        }
+        .padding()
+    }
+}
+
+extension AnyTransition {
+    static var mainViewTransition: AnyTransition {
+        let insertion = AnyTransition.move(edge: .top)
+        let removal = AnyTransition.move(edge: .bottom)
+        return .asymmetric(insertion: insertion, removal: removal)
+    }
+    
+    static var goalsViewTransition: AnyTransition {
+        let insertion = AnyTransition.move(edge: .bottom)
+        let removal = AnyTransition.move(edge: .top)
+        return .asymmetric(insertion: insertion, removal: removal)
+    }
+}
+
+struct AppView: View {
+    @State private var showGoals = false
+    
+    var body: some View {
+        GeometryReader { geometry in
+            if self.showGoals {
+                GoalsView(showGoals: self.$showGoals)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .transition(.goalsViewTransition)
+            } else {
+                MainView(showGoals: self.$showGoals)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .transition(.mainViewTransition)
+            }
+        }
+    }
+}
+
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Color.black.opacity(0.8).edgesIgnoringSafeArea(.all)
-            GeometryReader { g in
-                ScrollView {
-                    VStack {
-                        HeaderView()
-                        PhraseView()
-                        GeometryReader { geometry in
-                                ProgressView()
-                                .frame(width: geometry.size.width / 2, height: geometry.size.height / 2)
-                        }
-                        Button(action: { print("view goals tapped") }) {
-                            Text("See your goals")
-                                .padding()
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .background(Color.gray)
-                                .cornerRadius(40)
-                                .shadow(radius: 10)
-                        }
-                    }
-                    .padding()
-                    .frame(width: g.size.width, height: g.size.height)
-                }
+        GeometryReader { geometry in
+            ZStack {
+                Color.black.opacity(0.8).edgesIgnoringSafeArea(.all)
+                AppView()
             }
         }
     }
