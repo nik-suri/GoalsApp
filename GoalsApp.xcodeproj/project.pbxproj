@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31A1842123AC38D900E0CA20 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1842023AC38D900E0CA20 /* DateUtility.swift */; };
 		31CEEC6123A9A0D1000286F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC6023A9A0D1000286F5 /* AppDelegate.swift */; };
 		31CEEC6323A9A0D1000286F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC6223A9A0D1000286F5 /* SceneDelegate.swift */; };
 		31CEEC6523A9A0D1000286F5 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC6423A9A0D1000286F5 /* AppView.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31A1842023AC38D900E0CA20 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		31CEEC5D23A9A0D1000286F5 /* GoalsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31CEEC6023A9A0D1000286F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31CEEC6223A9A0D1000286F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31A1841F23AC38CB00E0CA20 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				31A1842023AC38D900E0CA20 /* DateUtility.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		31CEEC5423A9A0D1000286F5 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 			children = (
 				31CEEC6023A9A0D1000286F5 /* AppDelegate.swift */,
 				31CEEC6223A9A0D1000286F5 /* SceneDelegate.swift */,
+				31A1841F23AC38CB00E0CA20 /* Utilities */,
 				31CEECA423AB43FB000286F5 /* Models */,
 				31CEEC9A23AADCDE000286F5 /* Views */,
 				31CEEC6623A9A0D3000286F5 /* Assets.xcassets */,
@@ -153,8 +164,8 @@
 			children = (
 				31CEEC6423A9A0D1000286F5 /* AppView.swift */,
 				31CEEC9C23AADD10000286F5 /* ContentView.swift */,
-				31CEEC9E23AADD5C000286F5 /* MainView.swift */,
 				31CEECA023AADD8A000286F5 /* GoalsView.swift */,
+				31CEEC9E23AADD5C000286F5 /* MainView.swift */,
 				31CEEC9B23AADCE5000286F5 /* Components */,
 			);
 			path = Views;
@@ -310,6 +321,7 @@
 			files = (
 				31CEEC6123A9A0D1000286F5 /* AppDelegate.swift in Sources */,
 				31CEEC9F23AADD5C000286F5 /* MainView.swift in Sources */,
+				31A1842123AC38D900E0CA20 /* DateUtility.swift in Sources */,
 				31CEEC9323A9C203000286F5 /* CircleImage.swift in Sources */,
 				31CEECA323AB414D000286F5 /* ThemeText.swift in Sources */,
 				31CEECA123AADD8A000286F5 /* GoalsView.swift in Sources */,

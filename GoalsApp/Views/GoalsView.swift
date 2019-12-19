@@ -37,9 +37,9 @@ private struct GoalRow: View {
             ThemeText(content: goal.title)
                 .font(.headline)
             HStack {
-                ThemeText(content: "Created \(goal.creationDate)")
-                    .font(.headline)
-                ThemeText(content: "Active \(20) days")
+                ThemeText(content: "Created \(goal.creationDate.shortDateTime)")
+                Spacer()
+                ThemeText(content: "Active \(Date().offsetString(from: goal.creationDate))")
             }
         }
     }
