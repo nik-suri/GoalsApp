@@ -19,6 +19,8 @@
 		31CEEC9D23AADD10000286F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC9C23AADD10000286F5 /* ContentView.swift */; };
 		31CEEC9F23AADD5C000286F5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC9E23AADD5C000286F5 /* MainView.swift */; };
 		31CEECA123AADD8A000286F5 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEECA023AADD8A000286F5 /* GoalsView.swift */; };
+		31CEECA323AB414D000286F5 /* ThemeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEECA223AB414D000286F5 /* ThemeText.swift */; };
+		31CEECA623AB440D000286F5 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEECA523AB440D000286F5 /* Goal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		31CEEC9C23AADD10000286F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		31CEEC9E23AADD5C000286F5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		31CEECA023AADD8A000286F5 /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
+		31CEECA223AB414D000286F5 /* ThemeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeText.swift; sourceTree = "<group>"; };
+		31CEECA523AB440D000286F5 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 			children = (
 				31CEEC6023A9A0D1000286F5 /* AppDelegate.swift */,
 				31CEEC6223A9A0D1000286F5 /* SceneDelegate.swift */,
+				31CEECA423AB43FB000286F5 /* Models */,
 				31CEEC9A23AADCDE000286F5 /* Views */,
 				31CEEC6623A9A0D3000286F5 /* Assets.xcassets */,
 				31CEEC6E23A9A0D3000286F5 /* Info.plist */,
@@ -160,8 +165,17 @@
 			children = (
 				31CEEC9223A9C203000286F5 /* CircleImage.swift */,
 				31CEEC9823AADA1B000286F5 /* MainTransitionButton.swift */,
+				31CEECA223AB414D000286F5 /* ThemeText.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		31CEECA423AB43FB000286F5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				31CEECA523AB440D000286F5 /* Goal.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,10 +311,12 @@
 				31CEEC6123A9A0D1000286F5 /* AppDelegate.swift in Sources */,
 				31CEEC9F23AADD5C000286F5 /* MainView.swift in Sources */,
 				31CEEC9323A9C203000286F5 /* CircleImage.swift in Sources */,
+				31CEECA323AB414D000286F5 /* ThemeText.swift in Sources */,
 				31CEECA123AADD8A000286F5 /* GoalsView.swift in Sources */,
 				31CEEC9D23AADD10000286F5 /* ContentView.swift in Sources */,
 				31CEEC9923AADA1B000286F5 /* MainTransitionButton.swift in Sources */,
 				31CEEC6323A9A0D1000286F5 /* SceneDelegate.swift in Sources */,
+				31CEECA623AB440D000286F5 /* Goal.swift in Sources */,
 				31CEEC6523A9A0D1000286F5 /* AppView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

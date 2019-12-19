@@ -26,13 +26,11 @@ private struct PhraseView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Phrase of the Day:")
+            ThemeText(content: "Phrase of the Day:")
                 .font(.title)
-                .colorInvert()
             Spacer()
-            Text("Total commitment to the action, total equanimity to the outcome.")
+            ThemeText(content: "Total commitment to the action, total equanimity to the outcome.")
                 .font(.headline)
-                .colorInvert()
             Spacer()
         }
     }
@@ -45,12 +43,10 @@ private struct ProgressView: View {
              .shadow(radius: 10)
              .overlay(
                  VStack {
-                     Text("8")
+                    ThemeText(content: "8")
                          .font(.headline)
-                         .colorInvert()
-                     Text("goals accomplished")
+                    ThemeText(content: "goals accomplished")
                          .font(.subheadline)
-                         .colorInvert()
                  })
     }
 }
