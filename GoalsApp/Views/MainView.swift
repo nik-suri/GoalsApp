@@ -39,7 +39,7 @@ private struct PhraseView: View {
 private struct ProgressView: View {
     var body: some View {
         Circle()
-             .stroke(Color.yellow, lineWidth: 4)
+             .stroke(Color.yellow, lineWidth: 10)
              .shadow(radius: 10)
              .overlay(
                  VStack {

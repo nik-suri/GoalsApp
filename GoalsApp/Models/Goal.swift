@@ -12,4 +12,5 @@ struct Goal: Hashable, Codable, Identifiable {
     var id: Int
     var title: String
     var creationDate: Date
+    var complete: Bool
 }

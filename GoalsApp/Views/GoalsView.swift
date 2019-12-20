@@ -9,21 +9,23 @@
 import SwiftUI
 
 private struct HeaderView: View {
+    @Binding var showActive: Bool
+    
     var body: some View {
         HStack {
             ThemeText(content: "My Goals")
                 .font(.title)
             Spacer()
-            Button(action: { print("show active tapped") }) {
+            Button(action: { self.showActive = true }) {
                 Text("Active")
                     .font(.headline)
-                    .foregroundColor(.white)
+                    .foregroundColor(showActive ? .yellow : .white)
             }
             ThemeText(content: "|")
-            Button(action: { print("show completed tapped") }) {
+            Button(action: { self.showActive = false }) {
                 Text("Complete")
                     .font(.headline)
-                    .foregroundColor(.white)
+                    .foregroundColor(showActive ? .white : .yellow)
             }
         }
     }
@@ -45,30 +47,60 @@ private struct GoalRow: View {
     }
 }
 
+private let goalData = [
+    Goal(id: 0,
+         title: "Pip A",
+         creationDate: Date(),
+         complete: true),
+    Goal(id: 1,
+         title: "Complete themelab with Sean",
+         creationDate: Date(),
+         complete: true),
+    Goal(id: 2,
+         title: "Pip B",
+         creationDate: Date(),
+         complete: false),
+    Goal(id: 3,
+         title: "Cricket/women's squash mixer",
+         creationDate: Date(),
+         complete: false)
+]
+
 private struct GoalsList: View {
-    init() {
+    var showActive: Bool
+    
+    init(showActive: Bool) {
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
+        
+        self.showActive = showActive
     }
     
     var body: some View {
         List {
-            GoalRow(goal: Goal(id: 0, title: "Pip A", creationDate: Date()))
-            GoalRow(goal: Goal(id: 1, title: "Complete themelab with Sean", creationDate: Date()))
+            ForEach(goalData) { goal in
+                if self.showActive && !goal.complete {
+                    GoalRow(goal: goal)
+                } else if !self.showActive && goal.complete {
+                    GoalRow(goal: goal)
+                }
+            }
         }
     }
 }
 
 struct GoalsView: View {
+    @State var showActive = true
+    
     @Binding var showGoals: Bool
     
     var body: some View {
         VStack {
-            MainTransitionButton(bind: self.$showGoals,
+            MainTransitionButton(bind: $showGoals,
                                  showGoals: false,
                                  text: "Go back")
-            HeaderView()
-            GoalsList()
+            HeaderView(showActive: $showActive)
+            GoalsList(showActive: showActive)
             Spacer()
         }
         .padding()
