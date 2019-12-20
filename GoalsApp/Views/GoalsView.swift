@@ -51,19 +51,19 @@ private let goalData = [
     Goal(id: 0,
          title: "Pip A",
          creationDate: Date(),
-         complete: true),
+         complete: false),
     Goal(id: 1,
          title: "Complete themelab with Sean",
          creationDate: Date(),
-         complete: true),
+         complete: false),
     Goal(id: 2,
          title: "Pip B",
          creationDate: Date(),
-         complete: false),
+         complete: true),
     Goal(id: 3,
          title: "Cricket/women's squash mixer",
          creationDate: Date(),
-         complete: false)
+         complete: true)
 ]
 
 private struct GoalsList: View {
@@ -90,7 +90,7 @@ private struct GoalsList: View {
 }
 
 struct GoalsView: View {
-    @State var showActive = true
+    @State private var showActive = true
     
     @Binding var showGoals: Bool
     

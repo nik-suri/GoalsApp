@@ -8,15 +8,32 @@
 
 import SwiftUI
 
+private struct AddGoalView: View {
+    var onDismiss: () -> ()
+    
+    var body: some View {
+        Button(action: { self.onDismiss() }) {
+            Text("Dismiss")
+        }
+    }
+}
+
 private struct HeaderView: View {
+    @State var addGoalDisplayed = false
+    
     var body: some View {
         HStack {
             Button(action: { print("menu tapped") }) {
                 CircleImage(image: Image(systemName: "list.dash"))
             }
             Spacer()
-            Button(action: { print("add goal tapped") }) {
+            Button(action: { self.addGoalDisplayed = true }) {
                 CircleImage(image: Image(systemName: "plus"))
+            }
+            .sheet(isPresented: $addGoalDisplayed) {
+                AddGoalView(onDismiss: {
+                    self.addGoalDisplayed = false
+                })
             }
         }
     }
