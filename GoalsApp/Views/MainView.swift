@@ -8,18 +8,65 @@
 
 import SwiftUI
 
+private struct CustomTextField: View {
+    var placeholder: String
+    @Binding var text: String
+
+    var body: some View {
+        ZStack(alignment: .leading) {
+            if text.isEmpty {
+                Text(placeholder)
+                    .foregroundColor(Color.white.opacity(0.7))
+                    .font(.headline)
+            }
+            TextField("", text: $text)
+                .foregroundColor(.white)
+                .font(.headline)
+        }
+    }
+}
+
 private struct AddGoalView: View {
     var onDismiss: () -> ()
     
+    @State private var title = ""
+    
     var body: some View {
-        Button(action: { self.onDismiss() }) {
-            Text("Dismiss")
+        GeometryReader { geometry in
+            VStack {
+                HStack {
+                    ThemeText(content: "Add Goal")
+                        .font(.title)
+                    Spacer()
+                }
+                CustomTextField(placeholder: "Describe your goal...",
+                                text: self.$title)
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button(action: { self.onDismiss() }) {
+                        Text("Cancel")
+                            .foregroundColor(.white)
+                            .font(.headline)
+                    }
+                    Button(action: { print("confirm") }) {
+                        Text("Confirm")
+                            .foregroundColor(.white)
+                            .font(.headline)
+                    }
+                }
+            }
+            .padding()
+            .frame(width: geometry.size.width * 3/4, height: geometry.size.height / 4)
+            .background(Color.gray)
+            .cornerRadius(20)
         }
     }
 }
 
 private struct HeaderView: View {
-    @State var addGoalDisplayed = false
+    @State private var addGoalDisplayed = false
+    @Binding var showAddGoal: Bool
     
     var body: some View {
         HStack {
@@ -27,13 +74,8 @@ private struct HeaderView: View {
                 CircleImage(image: Image(systemName: "list.dash"))
             }
             Spacer()
-            Button(action: { self.addGoalDisplayed = true }) {
+            Button(action: { self.showAddGoal = true }) {
                 CircleImage(image: Image(systemName: "plus"))
-            }
-            .sheet(isPresented: $addGoalDisplayed) {
-                AddGoalView(onDismiss: {
-                    self.addGoalDisplayed = false
-                })
             }
         }
     }
@@ -70,19 +112,28 @@ private struct ProgressView: View {
 
 struct MainView: View {
     @Binding var showGoals: Bool
+    @State private var showAddGoal = false
     
     var body: some View {
-        VStack {
-            HeaderView()
-            PhraseView()
-            GeometryReader { geometry in
-                    ProgressView()
-                    .frame(width: geometry.size.width / 2, height: geometry.size.height / 2)
+        ZStack {
+            VStack {
+                HeaderView(showAddGoal: $showAddGoal)
+                PhraseView()
+                GeometryReader { geometry in
+                        ProgressView()
+                        .frame(width: geometry.size.width / 2, height: geometry.size.height / 2)
+                }
+                MainTransitionButton(bind: self.$showGoals,
+                                     showGoals: true,
+                                     text: "See your goals")
             }
-            MainTransitionButton(bind: self.$showGoals,
-                                 showGoals: true,
-                                 text: "See your goals")
+            .padding()
+            if self.showAddGoal {
+                Color.black.opacity(0.8).edgesIgnoringSafeArea(.all)
+                AddGoalView(onDismiss: {
+                    self.showAddGoal = false
+                })
+            }
         }
-        .padding()
     }
 }
