@@ -61,6 +61,7 @@ private struct AddGoalView: View {
                                 realm.add(newGoal)
                                 print("success")
                             })
+                            self.onDismiss()
                         } catch {
                             print(error.localizedDescription)
                         }

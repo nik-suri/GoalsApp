@@ -48,9 +48,13 @@ private struct GoalRow: View {
             ThemeText(content: goal.title)
                 .font(.headline)
             HStack {
-                goal.creationDate.map({ ThemeText(content: "Created \($0.shortDateTime)") })
+                goal.creationDate.map({
+                    ThemeText(content: "Created \($0.shortDateTime)")
+                })
                 Spacer()
-                goal.creationDate.map({ ThemeText(content: "Active \(Date().offsetString(from: $0))") })
+                goal.creationDate.map({
+                    ThemeText(content: "Active \(Date().offsetString(from: $0))")
+                })
             }
         }
     }
