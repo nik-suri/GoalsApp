@@ -86,9 +86,6 @@ private struct HeaderView: View {
     
     var body: some View {
         HStack {
-            Button(action: { print("menu tapped") }) {
-                CircleImage(image: Image(systemName: "list.dash"))
-            }
             Spacer()
             Button(action: { self.showAddGoal = true }) {
                 CircleImage(image: Image(systemName: "plus"))
