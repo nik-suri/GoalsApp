@@ -11,22 +11,30 @@ import SwiftUI
 private struct HeaderView: View {
     @Binding var showActive: Bool
     
+    init(showActive: Binding<Bool>) {
+        UISegmentedControl.appearance().selectedSegmentTintColor = .gray
+        UISegmentedControl.appearance().setTitleTextAttributes(
+            [.foregroundColor: UIColor.yellow],
+            for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes(
+            [.foregroundColor: UIColor.white],
+            for: .normal)
+        
+        self._showActive = showActive
+    }
+    
     var body: some View {
-        HStack {
-            ThemeText(content: "My Goals")
-                .font(.title)
-            Spacer()
-            Button(action: { self.showActive = true }) {
-                Text("Active")
-                    .font(.headline)
-                    .foregroundColor(showActive ? .yellow : .white)
+        VStack {
+            HStack {
+                ThemeText(content: "My Goals")
+                    .font(.title)
+                Spacer()
             }
-            ThemeText(content: "|")
-            Button(action: { self.showActive = false }) {
-                Text("Complete")
-                    .font(.headline)
-                    .foregroundColor(showActive ? .white : .yellow)
+            Picker("Test", selection: $showActive) {
+                Text("Active").font(.headline).tag(true)
+                Text("Complete").font(.headline).tag(false)
             }
+            .pickerStyle(SegmentedPickerStyle())
         }
     }
 }
