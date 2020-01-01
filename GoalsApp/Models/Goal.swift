@@ -6,11 +6,11 @@
 //  Copyright © 2019 Nikhil Suri. All rights reserved.
 //
 
-import SwiftUI
+import Foundation
+import RealmSwift
 
-struct Goal: Hashable, Codable, Identifiable {
-    var id: Int
-    var title: String
-    var creationDate: Date
-    var complete: Bool
+class Goal: Object, Identifiable {
+    @objc dynamic var title = ""
+    @objc dynamic var creationDate: Date? = nil
+    @objc dynamic var complete: Bool = false
 }

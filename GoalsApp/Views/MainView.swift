@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 private struct CustomTextField: View {
     var placeholder: String
@@ -49,7 +50,21 @@ private struct AddGoalView: View {
                             .foregroundColor(.white)
                             .font(.headline)
                     }
-                    Button(action: { print("confirm") }) {
+                    Button(action: {
+                        print("confirm")
+                        do {
+                            let realm = try Realm()
+                            let newGoal = Goal()
+                            newGoal.title = self.title
+                            newGoal.creationDate = Date()
+                            try realm.write({
+                                realm.add(newGoal)
+                                print("success")
+                            })
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }) {
                         Text("Confirm")
                             .foregroundColor(.white)
                             .font(.headline)

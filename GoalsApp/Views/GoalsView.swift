@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 private struct HeaderView: View {
     @Binding var showActive: Bool
@@ -47,32 +48,13 @@ private struct GoalRow: View {
             ThemeText(content: goal.title)
                 .font(.headline)
             HStack {
-                ThemeText(content: "Created \(goal.creationDate.shortDateTime)")
+                goal.creationDate.map({ ThemeText(content: "Created \($0.shortDateTime)") })
                 Spacer()
-                ThemeText(content: "Active \(Date().offsetString(from: goal.creationDate))")
+                goal.creationDate.map({ ThemeText(content: "Active \(Date().offsetString(from: $0))") })
             }
         }
     }
 }
-
-private let goalData = [
-    Goal(id: 0,
-         title: "Pip A",
-         creationDate: Date(),
-         complete: false),
-    Goal(id: 1,
-         title: "Complete themelab with Sean",
-         creationDate: Date(),
-         complete: false),
-    Goal(id: 2,
-         title: "Pip B",
-         creationDate: Date(),
-         complete: true),
-    Goal(id: 3,
-         title: "Cricket/women's squash mixer",
-         creationDate: Date(),
-         complete: true)
-]
 
 private struct GoalsList: View {
     var showActive: Bool
@@ -84,16 +66,28 @@ private struct GoalsList: View {
         self.showActive = showActive
     }
     
+    var goals: Results<Goal>? {
+        do {
+            let realm = try Realm()
+            let result = realm.objects(Goal.self)
+            print(result)
+            return result
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
     var body: some View {
-        List {
-            ForEach(goalData) { goal in
-                if self.showActive && !goal.complete {
+        goals.map({
+            List($0) { goal in
+               if self.showActive && !goal.complete {
                     GoalRow(goal: goal)
                 } else if !self.showActive && goal.complete {
                     GoalRow(goal: goal)
                 }
             }
-        }
+        })
     }
 }
 
