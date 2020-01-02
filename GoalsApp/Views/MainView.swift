@@ -7,69 +7,6 @@
 //
 
 import SwiftUI
-import RealmSwift
-
-private struct CustomTextField: View {
-    var placeholder: String
-    @Binding var text: String
-
-    var body: some View {
-        ZStack(alignment: .leading) {
-            if text.isEmpty {
-                Text(placeholder)
-                    .foregroundColor(Color.white.opacity(0.7))
-                    .font(.headline)
-            }
-            TextField("", text: $text)
-                .foregroundColor(.white)
-                .font(.headline)
-        }
-    }
-}
-
-private struct AddGoalView: View {
-    @Environment(\.presentationMode) private var presentationMode
-    @State private var title = ""
-    
-    var body: some View {
-        VStack {
-            HStack {
-                Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
-                    Text("Cancel")
-                        .foregroundColor(.yellow)
-                }
-                Spacer()
-                ThemeText(content: "New Goal")
-                    .font(.headline)
-                Spacer()
-                Button(action: {
-                    print("confirm")
-                    do {
-                        let realm = try Realm()
-                        let newGoal = Goal()
-                        newGoal.title = self.title
-                        newGoal.creationDate = Date()
-                        try realm.write({
-                            realm.add(newGoal)
-                            print("success")
-                        })
-                        self.presentationMode.wrappedValue.dismiss()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                }) {
-                    Text("Save")
-                        .foregroundColor(.yellow)
-                }
-            }
-            CustomTextField(placeholder: "Describe your goal...",
-                            text: self.$title)
-            Spacer()
-        }
-        .padding()
-        .background(Color.gray)
-    }
-}
 
 private struct HeaderView: View {
     private enum ActiveSheet {
@@ -104,7 +41,7 @@ private struct HeaderView: View {
                 if self.activeSheet == .goal {
                     AddGoalView()
                 } else {
-                    Text("Phrase View")
+                    AddPhraseView()
                 }
             }
         }

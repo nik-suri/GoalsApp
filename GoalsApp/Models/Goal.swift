@@ -12,5 +12,5 @@ import RealmSwift
 class Goal: Object, Identifiable {
     @objc dynamic var title = ""
     @objc dynamic var creationDate: Date? = nil
-    @objc dynamic var complete: Bool = false
+    @objc dynamic var complete = false
 }

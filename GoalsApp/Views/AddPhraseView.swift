@@ -1,0 +1,58 @@
+//
+//  AddPhraseView.swift
+//  GoalsApp
+//
+//  Created by Nikhil Suri on 1/1/20.
+//  Copyright © 2020 Nikhil Suri. All rights reserved.
+//
+
+import SwiftUI
+import RealmSwift
+
+struct AddPhraseView: View {
+    @Environment(\.presentationMode) private var presentationMode
+    @State private var content = ""
+    @State private var author = ""
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
+                    Text("Cancel")
+                        .foregroundColor(.yellow)
+                }
+                Spacer()
+                ThemeText(content: "New Phrase")
+                    .font(.headline)
+                Spacer()
+                Button(action: {
+                    do {
+                        let realm = try Realm()
+                        let newPhrase = Phrase()
+                        newPhrase.content = self.content
+                        newPhrase.author = self.author
+                        try realm.write({
+                            realm.add(newPhrase)
+                            print("success")
+                        })
+                        self.presentationMode.wrappedValue.dismiss()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }) {
+                    Text("Save")
+                        .foregroundColor(.yellow)
+                }
+            }
+            
+        }
+        .padding()
+        .background(Color.gray)
+    }
+}
+
+struct AddPhraseView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddPhraseView()
+    }
+}
