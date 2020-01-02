@@ -42,15 +42,12 @@ private struct GoalRow: View {
         VStack(alignment: .leading) {
             Theme.ThemeText(content: goal.title)
                 .font(.headline)
-            HStack {
-                goal.creationDate.map({
-                    Theme.ThemeText(content: "Created \($0.shortDateTime)")
-                })
-                Spacer()
-                goal.creationDate.map({
+            goal.creationDate.map({
+                Theme.ThemeText(content: "Created \($0.shortDateTime)")
+            })
+            goal.creationDate.map({
                     Theme.ThemeText(content: "Active \(Date().offsetString(from: $0))")
-                })
-            }
+            })
         }
     }
 }

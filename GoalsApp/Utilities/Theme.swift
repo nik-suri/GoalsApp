@@ -10,6 +10,7 @@ import SwiftUI
 
 final class Theme {
     static let primary = Color.black.opacity(0.8)
+    static let tertiary = Color.gray.opacity(0.6)
     
     struct ThemeText: View {
         var content: String

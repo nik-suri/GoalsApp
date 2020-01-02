@@ -20,9 +20,7 @@ private struct AddButton: View {
     
     var body: some View {
         Button(action: { self.showActionSheet = true }) {
-            Image(systemName: "plus")
-                .font(.largeTitle)
-                .foregroundColor(.yellow)
+            CircleImage(image: Image(systemName: "plus"))
         }
         .actionSheet(isPresented: $showActionSheet) {
             ActionSheet(title: Text("Add New"), buttons: [
@@ -52,23 +50,34 @@ private struct PhraseView: View {
         VStack {
             Theme.ThemeText(content: "Total commitment to the action, total equanimity to the outcome.")
                 .font(.headline)
-            Spacer()
         }
     }
 }
 
 private struct ProgressView: View {
     var body: some View {
-        Circle()
-             .stroke(Color.yellow, lineWidth: 10)
-             .shadow(radius: 10)
-             .overlay(
-                 VStack {
-                    Theme.ThemeText(content: "8")
-                         .font(.headline)
-                    Theme.ThemeText(content: "goals accomplished")
-                         .font(.subheadline)
-                 })
+        HStack {
+            Circle()
+                 .stroke(Color.yellow, lineWidth: 10)
+                 .overlay(
+                     VStack {
+                        Theme.ThemeText(content: "4")
+                             .font(.headline)
+                        Theme.ThemeText(content: "goals active")
+                             .font(.subheadline)
+                     })
+            Spacer()
+            Circle()
+                 .stroke(Color.yellow, lineWidth: 10)
+                 .overlay(
+                     VStack {
+                        Theme.ThemeText(content: "8")
+                             .font(.headline)
+                        Theme.ThemeText(content: "goals accomplished")
+                             .font(.subheadline)
+                     })
+        }
+        .padding()
     }
 }
 
@@ -77,14 +86,11 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 PhraseView()
-                GeometryReader { geometry in
-                        ProgressView()
-                        .frame(width: geometry.size.width / 2, height: geometry.size.height / 2)
-                }
+                ProgressView()
+                Spacer()
+                AddButton()
             }
             .padding()
-            .navigationBarTitle(Text("Home"))
-            .navigationBarItems(trailing: AddButton())
         }
     }
 }

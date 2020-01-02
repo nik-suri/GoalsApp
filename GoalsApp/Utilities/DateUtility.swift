@@ -39,20 +39,27 @@ extension Date {
     func offsetString(from date: Date) -> String {
         let daysDiff = self.days(from: date)
         if daysDiff != 0 {
-            return "\(daysDiff) days"
+            return "\(daysDiff) \(formatPlural(str: "day", num: daysDiff))"
         }
         
         let hoursDiff = self.hours(from: date)
         if hoursDiff != 0 {
-            return "\(hoursDiff) hours"
+            return "\(hoursDiff) \(formatPlural(str: "hour", num: hoursDiff))"
         }
         
         let minutesDiff = self.minutes(from: date)
         if minutesDiff != 0 {
-            return "\(minutesDiff) minutes"
+            return "\(minutesDiff) \(formatPlural(str: "minute", num: minutesDiff))"
         }
         
         let secondsDiff = self.seconds(from: date)
-        return "\(secondsDiff) seconds"
+        return "\(secondsDiff) \(formatPlural(str: "second", num: secondsDiff))"
     }
+}
+
+private func formatPlural(str: String, num: Int) -> String {
+    if num == 1 {
+        return str
+    }
+    return str + "s"
 }

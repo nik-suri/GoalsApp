@@ -16,11 +16,11 @@ struct CustomTextField: View {
         ZStack(alignment: .leading) {
             if text.isEmpty {
                 Text(placeholder)
-                    .foregroundColor(Color.white.opacity(0.6))
+                    .foregroundColor(Theme.tertiary)
                     .font(.headline)
             }
             TextField("", text: $text)
-                .foregroundColor(.white)
+                .foregroundColor(Theme.primary)
                 .font(.headline)
         }
     }

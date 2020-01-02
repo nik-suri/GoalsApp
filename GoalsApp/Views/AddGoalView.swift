@@ -14,16 +14,20 @@ struct AddGoalView: View {
     @State private var title = ""
     
     var body: some View {
-        VStack {
-            HStack {
+        NavigationView {
+            VStack {
+                CustomTextField(placeholder: "Describe your goal...", text: $title)
+                Spacer()
+            }
+            .padding()
+            .navigationBarTitle(Text("New Goal"), displayMode: .inline)
+            .navigationBarItems(
+                leading:
                 Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
-                    Text("Cancel")
-                        .foregroundColor(.yellow)
-                }
-                Spacer()
-                Theme.ThemeText(content: "New Goal")
-                    .font(.headline)
-                Spacer()
+                     Text("Cancel")
+                         .foregroundColor(.yellow)
+                 },
+                trailing:
                 Button(action: {
                     do {
                         let realm = try Realm()
@@ -42,11 +46,7 @@ struct AddGoalView: View {
                     Text("Save")
                         .foregroundColor(.yellow)
                 }
-            }
-            CustomTextField(placeholder: "Describe your goal...", text: $title)
-            Spacer()
+            )
         }
-        .padding()
-        .background(Theme.primary)
     }
 }

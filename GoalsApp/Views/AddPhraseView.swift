@@ -15,16 +15,21 @@ struct AddPhraseView: View {
     @State private var author = ""
     
     var body: some View {
-        VStack {
-            HStack {
+        NavigationView {
+            VStack {
+                CustomTextField(placeholder: "Quote", text: $content)
+                CustomTextField(placeholder: "Author", text: $author)
+                Spacer()
+            }
+            .padding()
+            .navigationBarTitle(Text("New Phrase"), displayMode: .inline)
+            .navigationBarItems(
+                leading:
                 Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
                     Text("Cancel")
                         .foregroundColor(.yellow)
-                }
-                Spacer()
-                Theme.ThemeText(content: "New Phrase")
-                    .font(.headline)
-                Spacer()
+                },
+                trailing:
                 Button(action: {
                     do {
                         let realm = try Realm()
@@ -43,14 +48,8 @@ struct AddPhraseView: View {
                     Text("Save")
                         .foregroundColor(.yellow)
                 }
-            }
-            CustomTextField(placeholder: "Quote", text: $content)
-            CustomTextField(placeholder: "Author", text: $author)
-            Spacer()
-            
+            )
         }
-        .padding()
-        .background(Theme.primary)
     }
 }
 
