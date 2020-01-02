@@ -78,8 +78,6 @@ private struct ProgressView: View {
 }
 
 struct MainView: View {
-    @Binding var showGoals: Bool
-    
     var body: some View {
         VStack {
             HeaderView()
@@ -88,9 +86,6 @@ struct MainView: View {
                     ProgressView()
                     .frame(width: geometry.size.width / 2, height: geometry.size.height / 2)
             }
-            MainTransitionButton(bind: self.$showGoals,
-                                 showGoals: true,
-                                 text: "See your goals")
         }
         .padding()
     }

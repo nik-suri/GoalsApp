@@ -97,14 +97,9 @@ private struct GoalsList: View {
 
 struct GoalsView: View {
     @State private var showActive = true
-    
-    @Binding var showGoals: Bool
-    
+        
     var body: some View {
         VStack {
-            MainTransitionButton(bind: $showGoals,
-                                 showGoals: false,
-                                 text: "Go back")
             HeaderView(showActive: $showActive)
             GoalsList(showActive: showActive)
             Spacer()
