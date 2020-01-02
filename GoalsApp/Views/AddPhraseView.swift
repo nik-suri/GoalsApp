@@ -44,10 +44,13 @@ struct AddPhraseView: View {
                         .foregroundColor(.yellow)
                 }
             }
+            CustomTextField(placeholder: "Quote", text: $content)
+            CustomTextField(placeholder: "Author", text: $author)
+            Spacer()
             
         }
         .padding()
-        .background(Color.gray)
+        .background(Theme.background)
     }
 }
 

@@ -10,6 +10,8 @@
 		3145BA8823BD84B500BCAB0D /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3145BA8723BD84B500BCAB0D /* Phrase.swift */; };
 		3145BA8A23BD850600BCAB0D /* AddGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3145BA8923BD850600BCAB0D /* AddGoalView.swift */; };
 		3145BA8C23BD857700BCAB0D /* AddPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3145BA8B23BD857700BCAB0D /* AddPhraseView.swift */; };
+		3145BA8E23BD93ED00BCAB0D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3145BA8D23BD93ED00BCAB0D /* Theme.swift */; };
+		3145BA9023BD9ABC00BCAB0D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3145BA8F23BD9ABC00BCAB0D /* CustomTextField.swift */; };
 		31A1842123AC38D900E0CA20 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1842023AC38D900E0CA20 /* DateUtility.swift */; };
 		31CEEC6123A9A0D1000286F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC6023A9A0D1000286F5 /* AppDelegate.swift */; };
 		31CEEC6323A9A0D1000286F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC6223A9A0D1000286F5 /* SceneDelegate.swift */; };
@@ -51,6 +53,8 @@
 		3145BA8723BD84B500BCAB0D /* Phrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
 		3145BA8923BD850600BCAB0D /* AddGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalView.swift; sourceTree = "<group>"; };
 		3145BA8B23BD857700BCAB0D /* AddPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseView.swift; sourceTree = "<group>"; };
+		3145BA8D23BD93ED00BCAB0D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		3145BA8F23BD9ABC00BCAB0D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		31A1842023AC38D900E0CA20 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		31CEEC5D23A9A0D1000286F5 /* GoalsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31CEEC6023A9A0D1000286F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				31A1842023AC38D900E0CA20 /* DateUtility.swift */,
+				3145BA8D23BD93ED00BCAB0D /* Theme.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 				31CEEC9223A9C203000286F5 /* CircleImage.swift */,
 				31CEEC9823AADA1B000286F5 /* MainTransitionButton.swift */,
 				31CEECA223AB414D000286F5 /* ThemeText.swift */,
+				3145BA8F23BD9ABC00BCAB0D /* CustomTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 				31CEEC9F23AADD5C000286F5 /* MainView.swift in Sources */,
 				31A1842123AC38D900E0CA20 /* DateUtility.swift in Sources */,
 				31CEEC9323A9C203000286F5 /* CircleImage.swift in Sources */,
+				3145BA9023BD9ABC00BCAB0D /* CustomTextField.swift in Sources */,
 				31CEECA323AB414D000286F5 /* ThemeText.swift in Sources */,
 				31CEECA123AADD8A000286F5 /* GoalsView.swift in Sources */,
 				3145BA8823BD84B500BCAB0D /* Phrase.swift in Sources */,
@@ -408,6 +415,7 @@
 				3145BA8A23BD850600BCAB0D /* AddGoalView.swift in Sources */,
 				31CEEC6323A9A0D1000286F5 /* SceneDelegate.swift in Sources */,
 				31CEECA623AB440D000286F5 /* Goal.swift in Sources */,
+				3145BA8E23BD93ED00BCAB0D /* Theme.swift in Sources */,
 				31CEEC6523A9A0D1000286F5 /* AppView.swift in Sources */,
 				3145BA8C23BD857700BCAB0D /* AddPhraseView.swift in Sources */,
 			);

@@ -12,7 +12,7 @@ struct AppView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                Color.black.opacity(0.8).edgesIgnoringSafeArea(.all)
+                Theme.background.edgesIgnoringSafeArea(.all)
                 ContentView()
             }
         }
