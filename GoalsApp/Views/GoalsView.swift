@@ -26,14 +26,9 @@ private struct HeaderView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                ThemeText(content: "My Goals")
-                    .font(.title)
-                Spacer()
-            }
             Picker("Test", selection: $showActive) {
-                Text("Active").font(.headline).tag(true)
-                Text("Complete").font(.headline).tag(false)
+                Text("Active").tag(true)
+                Text("Complete").tag(false)
             }
             .pickerStyle(SegmentedPickerStyle())
         }
@@ -45,15 +40,15 @@ private struct GoalRow: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            ThemeText(content: goal.title)
+            Theme.ThemeText(content: goal.title)
                 .font(.headline)
             HStack {
                 goal.creationDate.map({
-                    ThemeText(content: "Created \($0.shortDateTime)")
+                    Theme.ThemeText(content: "Created \($0.shortDateTime)")
                 })
                 Spacer()
                 goal.creationDate.map({
-                    ThemeText(content: "Active \(Date().offsetString(from: $0))")
+                    Theme.ThemeText(content: "Active \(Date().offsetString(from: $0))")
                 })
             }
         }
@@ -97,13 +92,16 @@ private struct GoalsList: View {
 
 struct GoalsView: View {
     @State private var showActive = true
-        
+    
     var body: some View {
-        VStack {
-            HeaderView(showActive: $showActive)
-            GoalsList(showActive: showActive)
-            Spacer()
+        NavigationView {
+            VStack {
+                HeaderView(showActive: $showActive)
+                GoalsList(showActive: showActive)
+                Spacer()
+            }
+            .padding()
+            .navigationBarTitle(Text("My Goals"))
         }
-        .padding()
     }
 }

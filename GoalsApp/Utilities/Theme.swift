@@ -9,5 +9,13 @@
 import SwiftUI
 
 final class Theme {
-    static let background = Color.black.opacity(0.8)
+    static let primary = Color.black.opacity(0.8)
+    
+    struct ThemeText: View {
+        var content: String
+        
+        var body: some View {
+            Text(content).foregroundColor(primary)
+        }
+    }
 }

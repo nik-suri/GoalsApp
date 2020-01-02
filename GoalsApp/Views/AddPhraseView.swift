@@ -22,7 +22,7 @@ struct AddPhraseView: View {
                         .foregroundColor(.yellow)
                 }
                 Spacer()
-                ThemeText(content: "New Phrase")
+                Theme.ThemeText(content: "New Phrase")
                     .font(.headline)
                 Spacer()
                 Button(action: {
@@ -50,7 +50,7 @@ struct AddPhraseView: View {
             
         }
         .padding()
-        .background(Theme.background)
+        .background(Theme.primary)
     }
 }
 

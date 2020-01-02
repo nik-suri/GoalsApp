@@ -21,7 +21,7 @@ struct AddGoalView: View {
                         .foregroundColor(.yellow)
                 }
                 Spacer()
-                ThemeText(content: "New Goal")
+                Theme.ThemeText(content: "New Goal")
                     .font(.headline)
                 Spacer()
                 Button(action: {
@@ -47,6 +47,6 @@ struct AddGoalView: View {
             Spacer()
         }
         .padding()
-        .background(Theme.background)
+        .background(Theme.primary)
     }
 }

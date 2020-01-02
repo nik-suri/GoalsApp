@@ -8,10 +8,4 @@
 
 import SwiftUI
 
-struct ThemeText: View {
-    var content: String
-    
-    var body: some View {
-        Text(content).colorInvert()
-    }
-}
+

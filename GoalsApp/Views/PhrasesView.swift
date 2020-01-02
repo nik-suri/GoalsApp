@@ -10,10 +10,13 @@ import SwiftUI
 
 struct PhrasesView: View {
     var body: some View {
-        VStack {
-            Text("Phrases")
-            Spacer()
+        NavigationView {
+            VStack {
+                Text("Phrases")
+                Spacer()
+            }
+            .padding()
+            .navigationBarTitle("My Phrases")
         }
-        .padding()
     }
 }

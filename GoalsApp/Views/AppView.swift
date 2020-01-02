@@ -10,11 +10,8 @@ import SwiftUI
 
 struct AppView: View {
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                Theme.background.edgesIgnoringSafeArea(.all)
-                ContentView()
-            }
+        ZStack {
+            ContentView()
         }
     }
 }

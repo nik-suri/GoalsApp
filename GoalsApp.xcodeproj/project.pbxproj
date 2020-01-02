@@ -16,7 +16,6 @@
 		31A1842123AC38D900E0CA20 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1842023AC38D900E0CA20 /* DateUtility.swift */; };
 		31CEEC6123A9A0D1000286F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC6023A9A0D1000286F5 /* AppDelegate.swift */; };
 		31CEEC6323A9A0D1000286F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC6223A9A0D1000286F5 /* SceneDelegate.swift */; };
-		31CEEC6523A9A0D1000286F5 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC6423A9A0D1000286F5 /* AppView.swift */; };
 		31CEEC6723A9A0D3000286F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31CEEC6623A9A0D3000286F5 /* Assets.xcassets */; };
 		31CEEC6A23A9A0D3000286F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31CEEC6923A9A0D3000286F5 /* Preview Assets.xcassets */; };
 		31CEEC7823A9A0D3000286F5 /* GoalsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC7723A9A0D3000286F5 /* GoalsAppTests.swift */; };
@@ -24,9 +23,8 @@
 		31CEEC9323A9C203000286F5 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC9223A9C203000286F5 /* CircleImage.swift */; };
 		31CEEC9923AADA1B000286F5 /* MainTransitionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC9823AADA1B000286F5 /* MainTransitionButton.swift */; };
 		31CEEC9D23AADD10000286F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC9C23AADD10000286F5 /* ContentView.swift */; };
-		31CEEC9F23AADD5C000286F5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC9E23AADD5C000286F5 /* MainView.swift */; };
+		31CEEC9F23AADD5C000286F5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC9E23AADD5C000286F5 /* HomeView.swift */; };
 		31CEECA123AADD8A000286F5 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEECA023AADD8A000286F5 /* GoalsView.swift */; };
-		31CEECA323AB414D000286F5 /* ThemeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEECA223AB414D000286F5 /* ThemeText.swift */; };
 		31CEECA623AB440D000286F5 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEECA523AB440D000286F5 /* Goal.swift */; };
 		DD852B8688AF65B5B0DC540D /* Pods_GoalsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C81A038B92771887DE1D9D3 /* Pods_GoalsApp.framework */; };
 /* End PBXBuildFile section */
@@ -61,7 +59,6 @@
 		31CEEC5D23A9A0D1000286F5 /* GoalsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31CEEC6023A9A0D1000286F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31CEEC6223A9A0D1000286F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		31CEEC6423A9A0D1000286F5 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		31CEEC6623A9A0D3000286F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31CEEC6923A9A0D3000286F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		31CEEC6E23A9A0D3000286F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,9 +71,8 @@
 		31CEEC9223A9C203000286F5 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		31CEEC9823AADA1B000286F5 /* MainTransitionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTransitionButton.swift; sourceTree = "<group>"; };
 		31CEEC9C23AADD10000286F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		31CEEC9E23AADD5C000286F5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		31CEEC9E23AADD5C000286F5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		31CEECA023AADD8A000286F5 /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
-		31CEECA223AB414D000286F5 /* ThemeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeText.swift; sourceTree = "<group>"; };
 		31CEECA523AB440D000286F5 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		4FB8FBF57B30DA6E966F956E /* Pods-GoalsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalsApp.release.xcconfig"; path = "Target Support Files/Pods-GoalsApp/Pods-GoalsApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,13 +178,12 @@
 		31CEEC9A23AADCDE000286F5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				31CEEC6423A9A0D1000286F5 /* AppView.swift */,
 				31CEEC9C23AADD10000286F5 /* ContentView.swift */,
 				31CEECA023AADD8A000286F5 /* GoalsView.swift */,
 				3145BA9123BDA61100BCAB0D /* PhrasesView.swift */,
 				3145BA8923BD850600BCAB0D /* AddGoalView.swift */,
 				3145BA8B23BD857700BCAB0D /* AddPhraseView.swift */,
-				31CEEC9E23AADD5C000286F5 /* MainView.swift */,
+				31CEEC9E23AADD5C000286F5 /* HomeView.swift */,
 				31CEEC9B23AADCE5000286F5 /* Components */,
 			);
 			path = Views;
@@ -199,7 +194,6 @@
 			children = (
 				31CEEC9223A9C203000286F5 /* CircleImage.swift */,
 				31CEEC9823AADA1B000286F5 /* MainTransitionButton.swift */,
-				31CEECA223AB414D000286F5 /* ThemeText.swift */,
 				3145BA8F23BD9ABC00BCAB0D /* CustomTextField.swift */,
 			);
 			path = Components;
@@ -406,11 +400,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				31CEEC6123A9A0D1000286F5 /* AppDelegate.swift in Sources */,
-				31CEEC9F23AADD5C000286F5 /* MainView.swift in Sources */,
+				31CEEC9F23AADD5C000286F5 /* HomeView.swift in Sources */,
 				31A1842123AC38D900E0CA20 /* DateUtility.swift in Sources */,
 				31CEEC9323A9C203000286F5 /* CircleImage.swift in Sources */,
 				3145BA9023BD9ABC00BCAB0D /* CustomTextField.swift in Sources */,
-				31CEECA323AB414D000286F5 /* ThemeText.swift in Sources */,
 				31CEECA123AADD8A000286F5 /* GoalsView.swift in Sources */,
 				3145BA8823BD84B500BCAB0D /* Phrase.swift in Sources */,
 				31CEEC9D23AADD10000286F5 /* ContentView.swift in Sources */,
@@ -420,7 +413,6 @@
 				31CEECA623AB440D000286F5 /* Goal.swift in Sources */,
 				3145BA8E23BD93ED00BCAB0D /* Theme.swift in Sources */,
 				3145BA9223BDA61100BCAB0D /* PhrasesView.swift in Sources */,
-				31CEEC6523A9A0D1000286F5 /* AppView.swift in Sources */,
 				3145BA8C23BD857700BCAB0D /* AddPhraseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
