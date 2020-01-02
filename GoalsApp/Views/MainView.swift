@@ -28,67 +28,84 @@ private struct CustomTextField: View {
 }
 
 private struct AddGoalView: View {
-    var onDismiss: () -> ()
-    
+    @Environment(\.presentationMode) private var presentationMode
     @State private var title = ""
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                HStack {
-                    ThemeText(content: "Add Goal")
-                        .font(.title)
-                    Spacer()
+        VStack {
+            HStack {
+                Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
+                    Text("Cancel")
+                        .foregroundColor(.yellow)
                 }
-                CustomTextField(placeholder: "Describe your goal...",
-                                text: self.$title)
                 Spacer()
-                HStack {
-                    Spacer()
-                    Button(action: { self.onDismiss() }) {
-                        Text("Cancel")
-                            .foregroundColor(.white)
-                            .font(.headline)
+                ThemeText(content: "New Goal")
+                    .font(.headline)
+                Spacer()
+                Button(action: {
+                    print("confirm")
+                    do {
+                        let realm = try Realm()
+                        let newGoal = Goal()
+                        newGoal.title = self.title
+                        newGoal.creationDate = Date()
+                        try realm.write({
+                            realm.add(newGoal)
+                            print("success")
+                        })
+                        self.presentationMode.wrappedValue.dismiss()
+                    } catch {
+                        print(error.localizedDescription)
                     }
-                    Button(action: {
-                        print("confirm")
-                        do {
-                            let realm = try Realm()
-                            let newGoal = Goal()
-                            newGoal.title = self.title
-                            newGoal.creationDate = Date()
-                            try realm.write({
-                                realm.add(newGoal)
-                                print("success")
-                            })
-                            self.onDismiss()
-                        } catch {
-                            print(error.localizedDescription)
-                        }
-                    }) {
-                        Text("Confirm")
-                            .foregroundColor(.white)
-                            .font(.headline)
-                    }
+                }) {
+                    Text("Save")
+                        .foregroundColor(.yellow)
                 }
             }
-            .padding()
-            .frame(width: geometry.size.width * 3/4, height: geometry.size.height / 4)
-            .background(Color.gray)
-            .cornerRadius(20)
+            CustomTextField(placeholder: "Describe your goal...",
+                            text: self.$title)
+            Spacer()
         }
+        .padding()
+        .background(Color.gray)
     }
 }
 
 private struct HeaderView: View {
-    @State private var addGoalDisplayed = false
-    @Binding var showAddGoal: Bool
+    private enum ActiveSheet {
+        case goal
+        case phrase
+    }
+    
+    @State private var showActionSheet: Bool = false
+    @State private var showAddSheet: Bool = false
+    @State private var activeSheet: ActiveSheet = .goal
     
     var body: some View {
         HStack {
             Spacer()
-            Button(action: { self.showAddGoal = true }) {
+            Button(action: { self.showActionSheet = true }) {
                 CircleImage(image: Image(systemName: "plus"))
+            }
+            .actionSheet(isPresented: $showActionSheet) {
+                ActionSheet(title: Text("Add New"), buttons: [
+                    .default(Text("Goal"), action: {
+                        self.showAddSheet = true
+                        self.activeSheet = .goal
+                    }),
+                    .default(Text("Phrase"), action: {
+                        self.showAddSheet = true
+                        self.activeSheet = .phrase
+                    }),
+                    .cancel(Text("Cancel"))
+                ])
+            }
+            .sheet(isPresented: $showAddSheet) {
+                if self.activeSheet == .goal {
+                    AddGoalView()
+                } else {
+                    Text("Phrase View")
+                }
             }
         }
     }
@@ -125,28 +142,19 @@ private struct ProgressView: View {
 
 struct MainView: View {
     @Binding var showGoals: Bool
-    @State private var showAddGoal = false
     
     var body: some View {
-        ZStack {
-            VStack {
-                HeaderView(showAddGoal: $showAddGoal)
-                PhraseView()
-                GeometryReader { geometry in
-                        ProgressView()
-                        .frame(width: geometry.size.width / 2, height: geometry.size.height / 2)
-                }
-                MainTransitionButton(bind: self.$showGoals,
-                                     showGoals: true,
-                                     text: "See your goals")
+        VStack {
+            HeaderView()
+            PhraseView()
+            GeometryReader { geometry in
+                    ProgressView()
+                    .frame(width: geometry.size.width / 2, height: geometry.size.height / 2)
             }
-            .padding()
-            if self.showAddGoal {
-                Color.black.opacity(0.8).edgesIgnoringSafeArea(.all)
-                AddGoalView(onDismiss: {
-                    self.showAddGoal = false
-                })
-            }
+            MainTransitionButton(bind: self.$showGoals,
+                                 showGoals: true,
+                                 text: "See your goals")
         }
+        .padding()
     }
 }
