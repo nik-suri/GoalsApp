@@ -26,6 +26,7 @@
 		31CEEC9F23AADD5C000286F5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC9E23AADD5C000286F5 /* HomeView.swift */; };
 		31CEECA123AADD8A000286F5 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEECA023AADD8A000286F5 /* GoalsView.swift */; };
 		31CEECA623AB440D000286F5 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEECA523AB440D000286F5 /* Goal.swift */; };
+		31E8476023BEDF980031A331 /* GoalCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E8475F23BEDF980031A331 /* GoalCircle.swift */; };
 		DD852B8688AF65B5B0DC540D /* Pods_GoalsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C81A038B92771887DE1D9D3 /* Pods_GoalsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		31CEEC9E23AADD5C000286F5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		31CEECA023AADD8A000286F5 /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
 		31CEECA523AB440D000286F5 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		31E8475F23BEDF980031A331 /* GoalCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCircle.swift; sourceTree = "<group>"; };
 		4FB8FBF57B30DA6E966F956E /* Pods-GoalsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalsApp.release.xcconfig"; path = "Target Support Files/Pods-GoalsApp/Pods-GoalsApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,6 +197,7 @@
 				31CEEC9223A9C203000286F5 /* CircleImage.swift */,
 				31CEEC9823AADA1B000286F5 /* MainTransitionButton.swift */,
 				3145BA8F23BD9ABC00BCAB0D /* CustomTextField.swift */,
+				31E8475F23BEDF980031A331 /* GoalCircle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31E8476023BEDF980031A331 /* GoalCircle.swift in Sources */,
 				31CEEC6123A9A0D1000286F5 /* AppDelegate.swift in Sources */,
 				31CEEC9F23AADD5C000286F5 /* HomeView.swift in Sources */,
 				31A1842123AC38D900E0CA20 /* DateUtility.swift in Sources */,

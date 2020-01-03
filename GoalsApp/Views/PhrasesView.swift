@@ -20,3 +20,9 @@ struct PhrasesView: View {
         }
     }
 }
+
+struct PhrasesView_Previews: PreviewProvider {
+    static var previews: some View {
+        PhrasesView()
+    }
+}

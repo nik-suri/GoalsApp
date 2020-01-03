@@ -17,8 +17,8 @@ struct AddPhraseView: View {
     var body: some View {
         NavigationView {
             VStack {
-                CustomTextField(placeholder: "Quote", text: $content)
-                CustomTextField(placeholder: "Author", text: $author)
+                CustomTextField(placeholder: "Quote...", text: $content)
+                CustomTextField(placeholder: "Author...", text: $author)
                 Spacer()
             }
             .padding()

@@ -50,3 +50,9 @@ struct AddGoalView: View {
         }
     }
 }
+
+struct AddGoalView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddGoalView()
+    }
+}

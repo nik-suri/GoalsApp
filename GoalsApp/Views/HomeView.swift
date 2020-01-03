@@ -55,27 +55,37 @@ private struct PhraseView: View {
 }
 
 private struct ProgressView: View {
+    @State private var showStroke = false
+    
     var body: some View {
         HStack {
-            Circle()
-                 .stroke(Color.yellow, lineWidth: 10)
-                 .overlay(
-                     VStack {
-                        Theme.ThemeText(content: "4")
-                             .font(.headline)
-                        Theme.ThemeText(content: "goals active")
-                             .font(.subheadline)
-                     })
+            GoalCircle(endAngleTarget: 310)
             Spacer()
-            Circle()
-                 .stroke(Color.yellow, lineWidth: 10)
-                 .overlay(
-                     VStack {
-                        Theme.ThemeText(content: "8")
-                             .font(.headline)
-                        Theme.ThemeText(content: "goals accomplished")
-                             .font(.subheadline)
-                     })
+            GoalCircle(endAngleTarget: 360)
+//            Circle()
+//                .stroke(Color.yellow, lineWidth: showStroke ? 10 : 0)
+//                .onAppear() {
+//                    withAnimation(.spring()) {
+//                        self.showStroke.toggle()
+//                    }
+//                }
+//                .overlay(
+//                     VStack {
+//                        Theme.ThemeText(content: "4")
+//                             .font(.headline)
+//                        Theme.ThemeText(content: "goals active")
+//                             .font(.subheadline)
+//                     })
+//            Spacer()
+//            Circle()
+//                .stroke(Color.yellow, lineWidth: 10)
+//                .overlay(
+//                     VStack {
+//                        Theme.ThemeText(content: "8")
+//                             .font(.headline)
+//                        Theme.ThemeText(content: "goals accomplished")
+//                             .font(.subheadline)
+//                     })
         }
         .padding()
     }
@@ -92,5 +102,11 @@ struct HomeView: View {
             }
             .padding()
         }
+    }
+}
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
     }
 }

@@ -102,3 +102,9 @@ struct GoalsView: View {
         }
     }
 }
+
+struct GoalsView_Previews: PreviewProvider {
+    static var previews: some View {
+        GoalsView()
+    }
+}
