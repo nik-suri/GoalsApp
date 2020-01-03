@@ -33,17 +33,16 @@ struct GoalCircle: View {
     var lowerText: String
     
     @State private var endAngleValue: Double = 0
-    @State private var upperTextOpacity: Double = 0
-    @State private var lowerTextOpacity: Double = 0
+    @State private var textOpacity: Double = 0
     
     var strokeAnimation: Animation {
         Animation.easeInOut(duration: 1)
-            .delay(0.5)
+            .delay(1.5)
     }
     
     var textAnimation: Animation {
         Animation.easeInOut(duration: 1)
-            .delay(1)
+            .delay(2)
     }
     
     var body: some View {
@@ -55,16 +54,14 @@ struct GoalCircle: View {
                         VStack {
                             Theme.ThemeText(content: self.upperText)
                                 .font(.system(size: geometry.size.height > geometry.size.width ? geometry.size.width * 0.3: geometry.size.height * 0.3))
-                                .opacity(self.upperTextOpacity)
                             Theme.ThemeText(content: self.lowerText)
                                 .font(.system(size: geometry.size.height > geometry.size.width ? geometry.size.width * 0.1: geometry.size.height * 0.1))
-                                .opacity(self.lowerTextOpacity)
                         }
                     )
+                    .opacity(self.textOpacity)
                     .onAppear() {
                         withAnimation(self.textAnimation) {
-                            self.upperTextOpacity = 1
-                            self.lowerTextOpacity = 1
+                            self.textOpacity = 1
                         }
                     }
             }
@@ -84,7 +81,7 @@ struct GoalCircle: View {
 struct GoalCircle_Previews: PreviewProvider {
     static var previews: some View {
         GoalCircle(endAngle: 310,
-                   upperText: "Hello",
-                   lowerText: "World")
+                   upperText: "8",
+                   lowerText: "Accomplished")
     }
 }

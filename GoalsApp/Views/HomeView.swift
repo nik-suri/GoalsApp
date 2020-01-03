@@ -46,10 +46,26 @@ private struct AddButton: View {
 }
 
 private struct PhraseView: View {
+    @State private var textOpacity: Double = 0
+    
+    var animation: Animation {
+        Animation.easeInOut(duration: 1)
+            .delay(0.3)
+    }
+    
     var body: some View {
         VStack {
             Theme.ThemeText(content: "Total commitment to the action, total equanimity to the outcome.")
                 .font(.headline)
+                Spacer().frame(height: 20)
+            Theme.ThemeText(content: "- Buddha")
+                .font(.subheadline)
+        }
+        .opacity(self.textOpacity)
+        .onAppear() {
+            withAnimation(self.animation) {
+                self.textOpacity = 1
+            }
         }
     }
 }
@@ -60,12 +76,12 @@ private struct ProgressView: View {
     var body: some View {
         HStack {
             GoalCircle(endAngle: 320,
-                       upperText: "Hello",
-                       lowerText: "World")
+                       upperText: "8",
+                       lowerText: "Active")
             Spacer()
             GoalCircle(endAngle: 360,
-                       upperText: "Hello",
-                       lowerText: "World")
+                       upperText: "4",
+                       lowerText: "Accomplished")
         }
     }
 }
