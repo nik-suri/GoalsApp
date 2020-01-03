@@ -21,7 +21,6 @@
 		31CEEC7823A9A0D3000286F5 /* GoalsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC7723A9A0D3000286F5 /* GoalsAppTests.swift */; };
 		31CEEC8323A9A0D3000286F5 /* GoalsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC8223A9A0D3000286F5 /* GoalsAppUITests.swift */; };
 		31CEEC9323A9C203000286F5 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC9223A9C203000286F5 /* CircleImage.swift */; };
-		31CEEC9923AADA1B000286F5 /* MainTransitionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC9823AADA1B000286F5 /* MainTransitionButton.swift */; };
 		31CEEC9D23AADD10000286F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC9C23AADD10000286F5 /* ContentView.swift */; };
 		31CEEC9F23AADD5C000286F5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC9E23AADD5C000286F5 /* HomeView.swift */; };
 		31CEECA123AADD8A000286F5 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEECA023AADD8A000286F5 /* GoalsView.swift */; };
@@ -70,7 +69,6 @@
 		31CEEC8223A9A0D3000286F5 /* GoalsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsAppUITests.swift; sourceTree = "<group>"; };
 		31CEEC8423A9A0D3000286F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31CEEC9223A9C203000286F5 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
-		31CEEC9823AADA1B000286F5 /* MainTransitionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTransitionButton.swift; sourceTree = "<group>"; };
 		31CEEC9C23AADD10000286F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		31CEEC9E23AADD5C000286F5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		31CEECA023AADD8A000286F5 /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				31CEEC9223A9C203000286F5 /* CircleImage.swift */,
-				31CEEC9823AADA1B000286F5 /* MainTransitionButton.swift */,
 				3145BA8F23BD9ABC00BCAB0D /* CustomTextField.swift */,
 				31E8475F23BEDF980031A331 /* GoalCircle.swift */,
 			);
@@ -411,7 +408,6 @@
 				31CEECA123AADD8A000286F5 /* GoalsView.swift in Sources */,
 				3145BA8823BD84B500BCAB0D /* Phrase.swift in Sources */,
 				31CEEC9D23AADD10000286F5 /* ContentView.swift in Sources */,
-				31CEEC9923AADA1B000286F5 /* MainTransitionButton.swift in Sources */,
 				3145BA8A23BD850600BCAB0D /* AddGoalView.swift in Sources */,
 				31CEEC6323A9A0D1000286F5 /* SceneDelegate.swift in Sources */,
 				31CEECA623AB440D000286F5 /* Goal.swift in Sources */,
