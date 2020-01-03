@@ -59,35 +59,14 @@ private struct ProgressView: View {
     
     var body: some View {
         HStack {
-            GoalCircle(endAngleTarget: 310)
+            GoalCircle(endAngle: 320,
+                       upperText: "Hello",
+                       lowerText: "World")
             Spacer()
-            GoalCircle(endAngleTarget: 360)
-//            Circle()
-//                .stroke(Color.yellow, lineWidth: showStroke ? 10 : 0)
-//                .onAppear() {
-//                    withAnimation(.spring()) {
-//                        self.showStroke.toggle()
-//                    }
-//                }
-//                .overlay(
-//                     VStack {
-//                        Theme.ThemeText(content: "4")
-//                             .font(.headline)
-//                        Theme.ThemeText(content: "goals active")
-//                             .font(.subheadline)
-//                     })
-//            Spacer()
-//            Circle()
-//                .stroke(Color.yellow, lineWidth: 10)
-//                .overlay(
-//                     VStack {
-//                        Theme.ThemeText(content: "8")
-//                             .font(.headline)
-//                        Theme.ThemeText(content: "goals accomplished")
-//                             .font(.subheadline)
-//                     })
+            GoalCircle(endAngle: 360,
+                       upperText: "Hello",
+                       lowerText: "World")
         }
-        .padding()
     }
 }
 
@@ -96,8 +75,8 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 PhraseView()
-                ProgressView()
                 Spacer()
+                ProgressView()
                 AddButton()
             }
             .padding()

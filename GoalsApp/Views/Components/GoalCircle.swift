@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CircleRing: Shape {
+private struct CircleRing: Shape {
     var endAngle: Double
     
     func path(in rect: CGRect) -> Path {
@@ -28,30 +28,63 @@ struct CircleRing: Shape {
 }
 
 struct GoalCircle: View {
-    var endAngleTarget: Double
+    var endAngle: Double
+    var upperText: String
+    var lowerText: String
     
-    @State private var endAngle: Double = 0
+    @State private var endAngleValue: Double = 0
+    @State private var upperTextOpacity: Double = 0
+    @State private var lowerTextOpacity: Double = 0
     
-    var animation: Animation {
+    var strokeAnimation: Animation {
         Animation.easeInOut(duration: 1)
             .delay(0.5)
     }
     
+    var textAnimation: Animation {
+        Animation.easeInOut(duration: 1)
+            .delay(1)
+    }
+    
     var body: some View {
-        CircleRing(endAngle: endAngle)
-            .stroke(Color.yellow, lineWidth: 10)
-            .aspectRatio(1, contentMode: .fit)
-            .padding()
-            .onAppear() {
-                withAnimation(self.animation) {
-                    self.endAngle = self.endAngleTarget
-                }
+        ZStack {
+            GeometryReader { geometry in
+                Circle()
+                    .stroke(lineWidth: 0)
+                    .overlay(
+                        VStack {
+                            Theme.ThemeText(content: self.upperText)
+                                .font(.system(size: geometry.size.height > geometry.size.width ? geometry.size.width * 0.3: geometry.size.height * 0.3))
+                                .opacity(self.upperTextOpacity)
+                            Theme.ThemeText(content: self.lowerText)
+                                .font(.system(size: geometry.size.height > geometry.size.width ? geometry.size.width * 0.1: geometry.size.height * 0.1))
+                                .opacity(self.lowerTextOpacity)
+                        }
+                    )
+                    .onAppear() {
+                        withAnimation(self.textAnimation) {
+                            self.upperTextOpacity = 1
+                            self.lowerTextOpacity = 1
+                        }
+                    }
             }
+            CircleRing(endAngle: endAngleValue)
+                .stroke(Color.yellow, lineWidth: 10)
+                .aspectRatio(1, contentMode: .fit)
+                .onAppear() {
+                    withAnimation(self.strokeAnimation) {
+                        self.endAngleValue = self.endAngle
+                    }
+                }
+        }
+        .padding()
     }
 }
 
 struct GoalCircle_Previews: PreviewProvider {
     static var previews: some View {
-        GoalCircle(endAngleTarget: 310)
+        GoalCircle(endAngle: 310,
+                   upperText: "Hello",
+                   lowerText: "World")
     }
 }

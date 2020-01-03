@@ -16,7 +16,8 @@ final class Theme {
         var content: String
         
         var body: some View {
-            Text(content).foregroundColor(primary)
+            Text(content)
+                .foregroundColor(primary)
         }
     }
 }
