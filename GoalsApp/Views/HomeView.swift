@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 private struct AddButton: View {
     private enum ActiveSheet {
@@ -53,6 +54,19 @@ private struct PhraseView: View {
             .delay(0.3)
     }
     
+    private var dayResult: Phrase? {
+        do {
+            let realm = try Realm()
+            let result = realm.objects(Phrase.self)
+            let count = result.count
+            let index = Int.random(in: 0...count - 1)
+            return result[index]
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
     var body: some View {
         VStack {
             Theme.ThemeText(content: "Total commitment to the action, total equanimity to the outcome.")
@@ -71,16 +85,36 @@ private struct PhraseView: View {
 }
 
 private struct ProgressView: View {
-    @State private var showStroke = false
+    private var numActive: String {
+        do {
+            let realm = try Realm()
+            let result = realm.objects(Goal.self).filter("complete = 0")
+            return "\(result.count)"
+        } catch {
+            print(error.localizedDescription)
+            return ""
+        }
+    }
+    
+    private var numComplete: String {
+        do {
+             let realm = try Realm()
+             let result = realm.objects(Goal.self).filter("complete = 1")
+             return "\(result.count)"
+         } catch {
+             print(error.localizedDescription)
+             return ""
+         }
+    }
     
     var body: some View {
         HStack {
             GoalCircle(endAngle: 320,
-                       upperText: "8",
+                       upperText: numActive,
                        lowerText: "Active")
             Spacer()
             GoalCircle(endAngle: 360,
-                       upperText: "4",
+                       upperText: numComplete,
                        lowerText: "Accomplished")
         }
     }

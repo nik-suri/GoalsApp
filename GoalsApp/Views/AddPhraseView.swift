@@ -32,7 +32,6 @@ struct AddPhraseView: View {
                 trailing:
                 Button(action: {
                     do {
-                        let realm = try Realm()
                         let newPhrase = Phrase()
                         newPhrase.content = self.content
                         newPhrase.author = self.author

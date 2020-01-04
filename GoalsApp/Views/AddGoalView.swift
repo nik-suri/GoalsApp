@@ -30,7 +30,6 @@ struct AddGoalView: View {
                 trailing:
                 Button(action: {
                     do {
-                        let realm = try Realm()
                         let newGoal = Goal()
                         newGoal.title = self.title
                         newGoal.creationDate = Date()

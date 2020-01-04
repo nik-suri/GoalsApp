@@ -53,37 +53,25 @@ private struct GoalRow: View {
 }
 
 private struct GoalsList: View {
-    var showActive: Bool
+    @Binding var showActive: Bool
     
-    init(showActive: Bool) {
+    init(showActive: Binding<Bool>) {
         UITableView.appearance().backgroundColor = .clear
+        UITableView.appearance().separatorStyle = .none
+        
         UITableViewCell.appearance().backgroundColor = .clear
         
-        self.showActive = showActive
-    }
-    
-    var goals: Results<Goal>? {
-        do {
-            let realm = try Realm()
-            let result = realm.objects(Goal.self)
-            print(result)
-            return result
-        } catch {
-            print(error.localizedDescription)
-            return nil
-        }
+        self._showActive = showActive
     }
     
     var body: some View {
-        goals.map({
-            List($0) { goal in
-               if self.showActive && !goal.complete {
-                    GoalRow(goal: goal)
-                } else if !self.showActive && goal.complete {
-                    GoalRow(goal: goal)
-                }
+        List(Query.goals) { goal in
+           if self.showActive && !goal.complete {
+                GoalRow(goal: goal)
+            } else if !self.showActive && goal.complete {
+                GoalRow(goal: goal)
             }
-        })
+        }
     }
 }
 
@@ -94,7 +82,7 @@ struct GoalsView: View {
         NavigationView {
             VStack {
                 HeaderView(showActive: $showActive)
-                GoalsList(showActive: showActive)
+                GoalsList(showActive: $showActive)
                 Spacer()
             }
             .padding()

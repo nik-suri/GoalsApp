@@ -30,24 +30,10 @@ private struct PhrasesList: View {
         UITableViewCell.appearance().backgroundColor = .clear
     }
     
-    var phrases: Results<Phrase>? {
-        do {
-            let realm = try Realm()
-            let result = realm.objects(Phrase.self)
-            print(result)
-            return result
-        } catch {
-            print(error.localizedDescription)
-            return nil
-        }
-    }
-    
     var body: some View {
-        phrases.map({
-            List($0) { phrase in
-                PhraseRow(phrase: phrase)
-            }
-        })
+        List(Query.phrases) { phrase in
+            PhraseRow(phrase: phrase)
+        }
     }
 }
 
