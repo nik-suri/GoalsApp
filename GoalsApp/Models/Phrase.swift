@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class Phrase: Object {
+class Phrase: Object, Identifiable {
     @objc dynamic var content = ""
     @objc dynamic var author = ""
 }

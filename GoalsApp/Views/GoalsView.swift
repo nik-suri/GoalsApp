@@ -74,18 +74,6 @@ private struct GoalsList: View {
         }
     }
     
-//    lazy var goals: Results<Goal>? = {
-//        do {
-//            let realm = try Realm()
-//            let result = realm.objects(Goal.self)
-//            print(result)
-//            return result
-//        } catch {
-//            print(error.localizedDescription)
-//            return nil
-//        }
-//    }()
-    
     var body: some View {
         goals.map({
             List($0) { goal in
