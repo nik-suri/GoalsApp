@@ -54,25 +54,22 @@ private struct PhraseView: View {
             .delay(0.3)
     }
     
-    private var dayResult: Phrase? {
-        do {
-            let realm = try Realm()
-            let result = realm.objects(Phrase.self)
-            let count = result.count
-            let index = Int.random(in: 0...count - 1)
-            return result[index]
-        } catch {
-            print(error.localizedDescription)
-            return nil
-        }
+    private let _dayResult = DailyLazyBox<Phrase> {
+        let count = Query.phrases.count
+        let index = Int.random(in: 0...count - 1)
+        return Query.phrases[index]
+    }
+    
+    private var dayResult: Phrase {
+        return _dayResult.value
     }
     
     var body: some View {
         VStack {
-            Theme.ThemeText(content: "Total commitment to the action, total equanimity to the outcome.")
+            Theme.ThemeText(content: dayResult.content)
                 .font(.headline)
                 Spacer().frame(height: 20)
-            Theme.ThemeText(content: "- Buddha")
+            Theme.ThemeText(content: "- \(dayResult.author)")
                 .font(.subheadline)
         }
         .opacity(self.textOpacity)

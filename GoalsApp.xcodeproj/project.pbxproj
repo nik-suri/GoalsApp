@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3127829023C06A3C00E94C8B /* LazyBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3127828F23C06A3C00E94C8B /* LazyBox.swift */; };
+		3127829023C06A3C00E94C8B /* DailyLazyBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3127828F23C06A3C00E94C8B /* DailyLazyBox.swift */; };
 		3127829223C126C100E94C8B /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3127829123C126C100E94C8B /* Query.swift */; };
 		3145BA8823BD84B500BCAB0D /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3145BA8723BD84B500BCAB0D /* Phrase.swift */; };
 		3145BA8A23BD850600BCAB0D /* AddGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3145BA8923BD850600BCAB0D /* AddGoalView.swift */; };
@@ -51,7 +51,7 @@
 /* Begin PBXFileReference section */
 		0C81A038B92771887DE1D9D3 /* Pods_GoalsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoalsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		286A8BD19A03630E8D353142 /* Pods-GoalsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalsApp.debug.xcconfig"; path = "Target Support Files/Pods-GoalsApp/Pods-GoalsApp.debug.xcconfig"; sourceTree = "<group>"; };
-		3127828F23C06A3C00E94C8B /* LazyBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyBox.swift; sourceTree = "<group>"; };
+		3127828F23C06A3C00E94C8B /* DailyLazyBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLazyBox.swift; sourceTree = "<group>"; };
 		3127829123C126C100E94C8B /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		3145BA8723BD84B500BCAB0D /* Phrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
 		3145BA8923BD850600BCAB0D /* AddGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalView.swift; sourceTree = "<group>"; };
@@ -112,7 +112,8 @@
 			children = (
 				31A1842023AC38D900E0CA20 /* DateUtility.swift */,
 				3145BA8D23BD93ED00BCAB0D /* Theme.swift */,
-				3127828F23C06A3C00E94C8B /* LazyBox.swift */,
+				3127828F23C06A3C00E94C8B /* DailyLazyBox.swift */,
+				3127829123C126C100E94C8B /* Query.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -209,7 +210,6 @@
 			children = (
 				31CEECA523AB440D000286F5 /* Goal.swift */,
 				3145BA8723BD84B500BCAB0D /* Phrase.swift */,
-				3127829123C126C100E94C8B /* Query.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -406,7 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31E8476023BEDF980031A331 /* GoalCircle.swift in Sources */,
-				3127829023C06A3C00E94C8B /* LazyBox.swift in Sources */,
+				3127829023C06A3C00E94C8B /* DailyLazyBox.swift in Sources */,
 				31CEEC6123A9A0D1000286F5 /* AppDelegate.swift in Sources */,
 				31CEEC9F23AADD5C000286F5 /* HomeView.swift in Sources */,
 				31A1842123AC38D900E0CA20 /* DateUtility.swift in Sources */,

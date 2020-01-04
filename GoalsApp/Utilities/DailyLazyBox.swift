@@ -11,7 +11,7 @@ private enum LazyValue<T> {
     case computed(T)
 }
 
-final class LazyBox<T> {
+final class DailyLazyBox<T> {
     init(computation: @escaping () -> T) {
         _value = .notYetComputed(computation)
     }
@@ -25,6 +25,7 @@ final class LazyBox<T> {
             self._value = .computed(result)
             return result
         case .computed(let result):
+            // if the local time is midnight, recompute
             return result
         }
     }
