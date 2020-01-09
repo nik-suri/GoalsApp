@@ -56,8 +56,15 @@ private struct PhraseView: View {
     
     private let _dayResult = DailyLazyBox<Phrase> {
         let count = Query.phrases.count
-        let index = Int.random(in: 0...count - 1)
-        return Query.phrases[index]
+        if count == 0 {
+            let defaultPhrase = Phrase()
+            defaultPhrase.content = "Daily Quotes will keep you motivated"
+            defaultPhrase.author = "GoalsApp"
+            return defaultPhrase
+        } else {
+            let index = Int.random(in: 0...count - 1)
+            return Query.phrases[index]
+        }
     }
     
     private var dayResult: Phrase {
@@ -82,36 +89,17 @@ private struct PhraseView: View {
 }
 
 private struct ProgressView: View {
-    private var numActive: String {
-        do {
-            let realm = try Realm()
-            let result = realm.objects(Goal.self).filter("complete = 0")
-            return "\(result.count)"
-        } catch {
-            print(error.localizedDescription)
-            return ""
-        }
-    }
-    
-    private var numComplete: String {
-        do {
-             let realm = try Realm()
-             let result = realm.objects(Goal.self).filter("complete = 1")
-             return "\(result.count)"
-         } catch {
-             print(error.localizedDescription)
-             return ""
-         }
-    }
+    private var numActive = Query.goals.filter("complete = 0").count
+    private var numComplete = Query.goals.filter("complete = 1").count
     
     var body: some View {
         HStack {
             GoalCircle(endAngle: 320,
-                       upperText: numActive,
+                       upperText: "\(numActive)",
                        lowerText: "Active")
             Spacer()
             GoalCircle(endAngle: 360,
-                       upperText: numComplete,
+                       upperText: "\(numComplete)",
                        lowerText: "Accomplished")
         }
     }

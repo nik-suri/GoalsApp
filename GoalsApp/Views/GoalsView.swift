@@ -32,10 +32,11 @@ private struct HeaderView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
         }
+        .padding(.horizontal)
     }
 }
 
-private struct GoalRow: View {
+private struct IncompleteGoalRow: View {
     var goal: Goal
     
     var body: some View {
@@ -49,6 +50,26 @@ private struct GoalRow: View {
                     Theme.ThemeText(content: "Active \(Date().offsetString(from: $0))")
             })
         }
+        .contextMenu {
+            Button(action: { print("tapped") }) { Text("Tap") }
+        }
+    }
+}
+
+private struct CompleteGoalRow: View {
+    var goal: Goal
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Theme.ThemeText(content: goal.title)
+                .font(.headline)
+            goal.completionDate.map({
+                Theme.ThemeText(content: "Completed \($0.shortDateTime)")
+            })
+            goal.completionDate.map({
+                Theme.ThemeText(content: "Completed \(Date().offsetString(from: $0)) ago")
+            })
+        }
     }
 }
 
@@ -57,19 +78,21 @@ private struct GoalsList: View {
     
     init(showActive: Binding<Bool>) {
         UITableView.appearance().backgroundColor = .clear
-        UITableView.appearance().separatorStyle = .none
-        
         UITableViewCell.appearance().backgroundColor = .clear
         
         self._showActive = showActive
     }
     
     var body: some View {
-        List(Query.goals) { goal in
-           if self.showActive && !goal.complete {
-                GoalRow(goal: goal)
-            } else if !self.showActive && goal.complete {
-                GoalRow(goal: goal)
+        List {
+            ForEach(Array(Query.goals)) { goal in
+                NavigationLink(destination: GoalDetail(goal: goal)) {
+                    if self.showActive && !goal.complete {
+                        IncompleteGoalRow(goal: goal)
+                    } else if !self.showActive && goal.complete {
+                        CompleteGoalRow(goal: goal)
+                    }
+                }
             }
         }
     }
@@ -81,11 +104,12 @@ struct GoalsView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Divider()
                 HeaderView(showActive: $showActive)
+                Divider()
                 GoalsList(showActive: $showActive)
                 Spacer()
             }
-            .padding()
             .navigationBarTitle(Text("My Goals"))
         }
     }

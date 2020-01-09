@@ -15,6 +15,7 @@
 		3145BA8E23BD93ED00BCAB0D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3145BA8D23BD93ED00BCAB0D /* Theme.swift */; };
 		3145BA9023BD9ABC00BCAB0D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3145BA8F23BD9ABC00BCAB0D /* CustomTextField.swift */; };
 		3145BA9223BDA61100BCAB0D /* PhrasesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3145BA9123BDA61100BCAB0D /* PhrasesView.swift */; };
+		319FB6EC23C7A316001A3DC3 /* GoalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319FB6EB23C7A316001A3DC3 /* GoalDetail.swift */; };
 		31A1842123AC38D900E0CA20 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A1842023AC38D900E0CA20 /* DateUtility.swift */; };
 		31CEEC6123A9A0D1000286F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC6023A9A0D1000286F5 /* AppDelegate.swift */; };
 		31CEEC6323A9A0D1000286F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC6223A9A0D1000286F5 /* SceneDelegate.swift */; };
@@ -59,6 +60,7 @@
 		3145BA8D23BD93ED00BCAB0D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		3145BA8F23BD9ABC00BCAB0D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		3145BA9123BDA61100BCAB0D /* PhrasesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesView.swift; sourceTree = "<group>"; };
+		319FB6EB23C7A316001A3DC3 /* GoalDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetail.swift; sourceTree = "<group>"; };
 		31A1842023AC38D900E0CA20 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		31CEEC5D23A9A0D1000286F5 /* GoalsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31CEEC6023A9A0D1000286F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				3145BA8923BD850600BCAB0D /* AddGoalView.swift */,
 				3145BA8B23BD857700BCAB0D /* AddPhraseView.swift */,
 				31CEEC9E23AADD5C000286F5 /* HomeView.swift */,
+				319FB6EB23C7A316001A3DC3 /* GoalDetail.swift */,
 				31CEEC9B23AADCE5000286F5 /* Components */,
 			);
 			path = Views;
@@ -408,6 +411,7 @@
 				31E8476023BEDF980031A331 /* GoalCircle.swift in Sources */,
 				3127829023C06A3C00E94C8B /* DailyLazyBox.swift in Sources */,
 				31CEEC6123A9A0D1000286F5 /* AppDelegate.swift in Sources */,
+				319FB6EC23C7A316001A3DC3 /* GoalDetail.swift in Sources */,
 				31CEEC9F23AADD5C000286F5 /* HomeView.swift in Sources */,
 				31A1842123AC38D900E0CA20 /* DateUtility.swift in Sources */,
 				31CEEC9323A9C203000286F5 /* CircleImage.swift in Sources */,

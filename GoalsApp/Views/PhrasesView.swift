@@ -25,8 +25,6 @@ private struct PhraseRow: View {
 private struct PhrasesList: View {
     init() {
         UITableView.appearance().backgroundColor = .clear
-        UITableView.appearance().separatorStyle = .none
-
         UITableViewCell.appearance().backgroundColor = .clear
     }
     
