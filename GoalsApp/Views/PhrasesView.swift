@@ -23,13 +23,14 @@ private struct PhraseRow: View {
 }
 
 private struct PhrasesList: View {
-    init() {
-        UITableView.appearance().backgroundColor = .clear
-        UITableViewCell.appearance().backgroundColor = .clear
+    @EnvironmentObject var appData: AppData
+    
+    private var phrases: [Phrase] {
+        Array(appData.phrases)
     }
     
     var body: some View {
-        List(Query.phrases) { phrase in
+        List(phrases) { phrase in
             PhraseRow(phrase: phrase)
         }
     }

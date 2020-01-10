@@ -9,15 +9,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var appData: AppData
+    
     var body: some View {
         TabView {
             HomeView().tabItem {
+                Image(systemName: "house")
                 Text("Home")
             }
             GoalsView().tabItem {
+                Image(systemName: "list.dash")
                 Text("Goals")
-            }
+            }.environmentObject(appData)
             PhrasesView().tabItem {
+                Image(systemName: "quote.bubble")
                 Text("Phrases")
             }
         }

@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class Goal: Object, Identifiable {
+final class Goal: Object, Identifiable {
     @objc dynamic var title = ""
     @objc dynamic var creationDate: Date? = nil
     @objc dynamic var completionDate: Date? = nil

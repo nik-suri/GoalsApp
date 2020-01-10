@@ -74,31 +74,50 @@ private struct CompleteGoalRow: View {
 }
 
 private struct GoalsList: View {
+    @EnvironmentObject var appData: AppData
     @Binding var showActive: Bool
     
-    init(showActive: Binding<Bool>) {
-        UITableView.appearance().backgroundColor = .clear
-        UITableViewCell.appearance().backgroundColor = .clear
-        
-        self._showActive = showActive
+    private var incompleteGoals: [Goal] {
+        Array(appData.goals.filter("complete = 0"))
+    }
+    
+    private var completeGoals: [Goal] {
+        Array(appData.goals.filter("complete = 1"))
+    }
+    
+    private var goals: [Goal] {
+        if showActive {
+            return incompleteGoals
+        }
+        return completeGoals
+    }
+    
+    func removeItem(at offsets: IndexSet) {
+        print(goals)
+        print(offsets)
+        offsets.forEach { offset in
+            print(offset)
+        }
     }
     
     var body: some View {
         List {
-            ForEach(Array(Query.goals)) { goal in
+            ForEach(goals) { goal in
                 NavigationLink(destination: GoalDetail(goal: goal)) {
-                    if self.showActive && !goal.complete {
+                    if self.showActive {
                         IncompleteGoalRow(goal: goal)
-                    } else if !self.showActive && goal.complete {
+                    } else {
                         CompleteGoalRow(goal: goal)
                     }
                 }
             }
+            .onDelete(perform: removeItem)
         }
     }
 }
 
 struct GoalsView: View {
+    @EnvironmentObject var appData: AppData
     @State private var showActive = true
     
     var body: some View {
@@ -107,7 +126,7 @@ struct GoalsView: View {
                 Divider()
                 HeaderView(showActive: $showActive)
                 Divider()
-                GoalsList(showActive: $showActive)
+                GoalsList(showActive: $showActive).environmentObject(appData)
                 Spacer()
             }
             .navigationBarTitle(Text("My Goals"))

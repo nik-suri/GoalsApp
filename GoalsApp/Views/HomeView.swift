@@ -47,15 +47,30 @@ private struct AddButton: View {
 }
 
 private struct PhraseView: View {
+    @EnvironmentObject var appData: AppData
     @State private var textOpacity: Double = 0
     
-    var animation: Animation {
+    private var animation: Animation {
         Animation.easeInOut(duration: 1)
             .delay(0.3)
     }
     
-    private let _dayResult = DailyLazyBox<Phrase> {
-        let count = Query.phrases.count
+//    private let _dayResult = DailyLazyBox<Phrase> {
+//        let count = appData.phrases.count
+//        if count == 0 {
+//            let defaultPhrase = Phrase()
+//            defaultPhrase.content = "Daily Quotes will keep you motivated"
+//            defaultPhrase.author = "GoalsApp"
+//            return defaultPhrase
+//        } else {
+//            let index = Int.random(in: 0...count - 1)
+//            return appData.phrases[index]
+//        }
+//    }
+    
+    private var dayResult: Phrase {
+//        _dayResult.value
+        let count = appData.phrases.count
         if count == 0 {
             let defaultPhrase = Phrase()
             defaultPhrase.content = "Daily Quotes will keep you motivated"
@@ -63,12 +78,8 @@ private struct PhraseView: View {
             return defaultPhrase
         } else {
             let index = Int.random(in: 0...count - 1)
-            return Query.phrases[index]
+            return appData.phrases[index]
         }
-    }
-    
-    private var dayResult: Phrase {
-        return _dayResult.value
     }
     
     var body: some View {
@@ -89,8 +100,15 @@ private struct PhraseView: View {
 }
 
 private struct ProgressView: View {
-    private var numActive = Query.goals.filter("complete = 0").count
-    private var numComplete = Query.goals.filter("complete = 1").count
+    @EnvironmentObject var appData: AppData
+    
+    private var numActive: Int {
+        appData.goals.filter("complete = 0").count
+    }
+    
+    private var numComplete: Int {
+        appData.goals.filter("complete = 1").count
+    }
     
     var body: some View {
         HStack {
